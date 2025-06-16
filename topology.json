@@ -1,0 +1,38 @@
+{
+    "paths": {
+        "path_one": {
+            "capacity": "40"
+        },
+        "path_two": {
+            "capacity": "60"
+        },
+        "path_three": {
+            "capacity": "80"
+        },
+        "path_four": {
+            "capacity": "100"
+        }
+    },
+    "agents": {
+        "agent_x": {
+            "cwnd": "",
+            "strategy": "",
+            "knob": ""
+        }
+    },
+    "knobs": {
+        "responsiveness": {
+            "high": "",
+            "low": ""
+        },
+        "reset": {
+            "hard_reset": "0",
+            "soft_reset": "1"
+        }
+    },
+    "brains": {
+        "greedy_speed_demon": {},
+        "cautious_operator": {},
+        "rule_follower": {}
+    }
+}

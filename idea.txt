@@ -1,0 +1,54 @@
+3-4 distinct network paths 
+from a source to a destination 
+(different highways)
+
+rules of congestion: 
+what happens when a path gets too crowded
+--> each path has a fixed capacity
+--> if the load exceeds the capacity
+    agents experience packet loss
+
+50 agents
+all send data at the same time
+each agent has internal speed
+(congestion window cwnd)
+
+
+
+
+variables:
+- paths 
+- congestion 
+- bandwidth
+- size/number of packets 
+- congestion
+- feedback
+
+
+- clock time 
+- invoke event routine 
+
+--------------------------------------------------
+
+path a : capacity: 
+path b : capacity: 
+path c : capacity: 
+path d : capacity: 
+
+
+agent (1 - 50) : load 
+
+
+if load > capacity => loss 
+
+cwnd 
+
+
+feedback
+probability 0 
+
+AIMD
+
+selfish
+cost aware
+knobs r / m 
