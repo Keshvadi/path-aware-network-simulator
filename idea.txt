@@ -15,7 +15,6 @@ each agent has internal speed
 
 
 
-
 variables:
 - paths 
 - congestion 
@@ -37,7 +36,7 @@ path d : capacity:
 
 
 agent (1 - 50) : load 
-
+(agents choose paths to send their data; cooperative, selfish, rule-following)
 
 if load > capacity => loss 
 
@@ -52,3 +51,29 @@ AIMD
 selfish
 cost aware
 knobs r / m 
+
+responsiveness (m) : how likely agents are to switch paths 
+                    probability that agent will switch to a different path
+                    (scale 0 to 1:
+                    high - close to 1: very jumpy
+                    low - close to 1: 
+                    might switch but probably not
+                    )
+
+
+reset softness (r): congestion window cwnd gets reset depending on r
+                    (scale 0 to 1
+                    r = 0 - hard reset: agent starts over at 
+                        a slow speed on the new path)
+                    r = 1 - soft reset: agent keeps all of its speed
+                        when switching 
+
+
+cwnd: congestion window number that represents how many packets each 
+        agent is allowed to send at once, changes dynamically
+        based on feedback (packet loss or no loss)
+
+        if packet_loss:
+            cwnd *= 0.5      #cwnd multiplicative decrease 
+        else:
+            cwnd += 1       #additive increase 
