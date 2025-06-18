@@ -29,6 +29,21 @@ variables:
 
 --------------------------------------------------
 
+
+
+Simulator:
+Path: 
+Capacity 
+Load 
+Congestion Control & packet loss
+AIMD
+Path Selection Strategies: selfish, altruistic, random, cost-aware
+
+
+
+
+--------------------------------------------------
+
 path a : capacity: 
 path b : capacity: 
 path c : capacity: 
@@ -67,6 +82,14 @@ reset softness (r): congestion window cwnd gets reset depending on r
                         a slow speed on the new path)
                     r = 1 - soft reset: agent keeps all of its speed
                         when switching 
+
+
+brains:             #1 greedy: simple & selfish
+                                high efficiency, high loss, low fairness, low stability
+                    #2 cautious: always chooses the path with the least traffic
+                                lower efficiency, lower loss, higher fairness, more stability
+                    #3 rule-follower: first low cost then speed demon 
+                                moderate in everything, low cost
 
 
 cwnd: congestion window number that represents how many packets each 

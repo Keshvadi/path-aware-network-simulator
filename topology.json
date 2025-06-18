@@ -1,38 +1,80 @@
 {
     "paths": {
         "path_one": {
-            "capacity": "40"
+            "capacity": "40",
+            "cost": "",
+            "throughput": "",
+            "bandwidth": ""
         },
         "path_two": {
-            "capacity": "60"
+            "capacity": "60",
+            "cost": "",
+            "throughput": "",
+            "bandwidth": ""
         },
         "path_three": {
-            "capacity": "80"
+            "capacity": "80",
+            "cost": "",
+            "throughput": "",
+            "bandwidth": ""
         },
         "path_four": {
-            "capacity": "100"
+            "capacity": "100",
+            "cost": "",
+            "throughput": "",
+            "bandwidth": ""
         }
     },
     "agents": {
-        "agent_x": {
-            "cwnd": "",
-            "strategy": "",
-            "knob": ""
+        "agent_1": {
+            "cwnd": "20",
+            "strategy": "greedy_speed_demon",
+            "responsiveness": "0.9",
+            "reset": "0.1"
+        },
+        "agent_2": {
+            "cwnd": "15",
+            "strategy": "cautious_operator",
+            "responsiveness": "0.1",
+            "reset": "0.9"
+        },
+        "agent_3": {
+            "cwnd": "25",
+            "strategy": "rule_follower",
+            "responsiveness": "0.5",
+            "reset": "0.5"
+        }
+    },
+    "brains": {
+        "greedy_speed_demon": {
+            "efficiency": "high",
+            "loss": "high",
+            "fairness": "low",
+            "stability": "low"
+        },
+        "cautious_operator": {
+            "efficiency": "low",
+            "loss": "low",
+            "fairness": "high",
+            "stability": "high"
+        },
+        "rule_follower": {
+            "efficiency": "moderate",
+            "loss": "moderate",
+            "fairness": "moderate",
+            "stability": "moderate"
         }
     },
     "knobs": {
         "responsiveness": {
-            "high": "",
-            "low": ""
+            "probability": {
+                "high": "1",
+                "low": "0"
+            }
         },
         "reset": {
-            "hard_reset": "0",
-            "soft_reset": "1"
+            "hard_reset": "",
+            "soft_reset": ""
         }
-    },
-    "brains": {
-        "greedy_speed_demon": {},
-        "cautious_operator": {},
-        "rule_follower": {}
     }
 }
