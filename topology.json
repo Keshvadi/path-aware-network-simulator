@@ -2,69 +2,56 @@
     "paths": {
         "path_one": {
             "capacity": "40",
-            "cost": "",
-            "throughput": "",
+            "latency": "",
             "bandwidth": ""
         },
         "path_two": {
             "capacity": "60",
-            "cost": "",
-            "throughput": "",
+            "latency": "",
             "bandwidth": ""
         },
         "path_three": {
             "capacity": "80",
-            "cost": "",
-            "throughput": "",
+            "latency": "",
             "bandwidth": ""
         },
         "path_four": {
             "capacity": "100",
-            "cost": "",
-            "throughput": "",
+            "latency": "",
             "bandwidth": ""
         }
     },
     "agents": {
         "agent_1": {
             "cwnd": "20",
+            "number_of_packets": "",
+            "packets_sent": "",
             "strategy": "greedy_speed_demon",
             "responsiveness": "0.9",
             "reset": "0.1"
         },
         "agent_2": {
             "cwnd": "15",
+            "number_of_packets": "",
+            "packets_sent": "",
             "strategy": "cautious_operator",
             "responsiveness": "0.1",
             "reset": "0.9"
         },
         "agent_3": {
             "cwnd": "25",
+            "number_of_packets": "",
+            "packets_sent": "",
             "strategy": "rule_follower",
             "responsiveness": "0.5",
             "reset": "0.5"
         }
     },
-    "brains": {
-        "greedy_speed_demon": {
-            "efficiency": "high",
-            "loss": "high",
-            "fairness": "low",
-            "stability": "low"
-        },
-        "cautious_operator": {
-            "efficiency": "low",
-            "loss": "low",
-            "fairness": "high",
-            "stability": "high"
-        },
-        "rule_follower": {
-            "efficiency": "moderate",
-            "loss": "moderate",
-            "fairness": "moderate",
-            "stability": "moderate"
-        }
-    },
+    "strategies": [
+        "greedy_speed_demon",
+        "cautious_operator",
+        "rule_follower"
+    ],
     "knobs": {
         "responsiveness": {
             "probability": {

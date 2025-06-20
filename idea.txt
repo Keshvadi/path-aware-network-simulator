@@ -100,3 +100,19 @@ cwnd: congestion window number that represents how many packets each
             cwnd *= 0.5      #cwnd multiplicative decrease 
         else:
             cwnd += 1       #additive increase 
+
+
+
+----------------------------------------------------------
+
+
+
+state machine:
+
+state1 ----> event ----> state2 
+
+
+----------------------------------------------------------
+
+
+
