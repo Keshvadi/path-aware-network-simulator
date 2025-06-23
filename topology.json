@@ -2,23 +2,23 @@
     "paths": {
         "path_one": {
             "capacity": "40",
-            "latency": "",
-            "bandwidth": ""
+            "latency": "40",
+            "bandwidth": "70"
         },
         "path_two": {
             "capacity": "60",
-            "latency": "",
-            "bandwidth": ""
+            "latency": "30",
+            "bandwidth": "90"
         },
         "path_three": {
             "capacity": "80",
-            "latency": "",
-            "bandwidth": ""
+            "latency": "50",
+            "bandwidth": "80"
         },
         "path_four": {
             "capacity": "100",
-            "latency": "",
-            "bandwidth": ""
+            "latency": "40",
+            "bandwidth": "60"
         }
     },
     "agents": {
