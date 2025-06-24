@@ -49,14 +49,12 @@
     ],
     "knobs": {
         "responsiveness": {
-            "probability": {
-                "high": 1,
-                "low": 0
-            }
+            "high": 0.99,
+            "low": 0.01
         },
         "reset": {
-            "hard_reset": 0,
-            "soft_reset": 1
+            "hard_reset": 0.01,
+            "soft_reset": 0.99
         }
     }
 }
