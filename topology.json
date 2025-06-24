@@ -11,7 +11,7 @@
         "path_two": {
             "capacity": 60,
             "latency": 30,
-            "bandwidth": 90,
+            "bandwidth": "90",
             "attributes": [
                 "high_cost"
             ]
