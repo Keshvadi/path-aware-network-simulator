@@ -37,7 +37,7 @@
         "default": {
             "cwnd": 0,
             "number_of_packets": 0,
-            "strategy": "",
+            "strategy": "greedy_speed_demon",
             "responsiveness": 0,
             "reset": 0
         }
@@ -63,15 +63,16 @@
         }
     },
     "simulation": {
-        "duration": "",
-        "time_step": "",
+        "duration": 10,
+        "time_step": 1,
         "logging": true
     },
-    "events": {
-        "time": "",
-        "type": "",
-        "agent": "",
-        "path": "",
-        "packets": ""
-    }
+    "events": [
+        {
+            "time": 0,
+            "type": "sending_packet",
+            "agent": "agent_name",
+            "path": "path_one"
+        }
+    ]
 }

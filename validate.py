@@ -28,8 +28,8 @@ def validate_keys(filename):
         with open(filename, "r") as file:
             data = json.load(file)
 
-        if "paths" not in data: 
-            print("Error in paths")
+        if "paths" not in data or "agents" not in data: 
+            print("Error: missing paths or agents")
             return False
         
         for path_name, path_info in data["paths"].items():
@@ -40,6 +40,19 @@ def validate_keys(filename):
                 elif not isinstance(path_info[key], int):
                     print(f"{key} in {path_name} is not an integer")
                     return False 
+                
+                
+        for agent_name, agent in data["agents"].items():
+            for key in ["cwnd", "number_of_packets", "strategy", "responsiveness", "reset"]:
+                if key not in agent: 
+                    print((f"Missing {key} in agent: {agent_name} "))
+                    return False
+                elif key in ["cwnd", "number_of_packets", "reset"] and not isinstance(agent[key], int):                    
+                    print(f"{key} in {agent_name} is not an integer")
+                    return False 
+                elif key == "responsiveness" and not isinstance(agent[key], (float, int)):
+                    print(f"{key} in agent {agent.get('name', '[unnamed]')} is not a float")
+                    return False
                 
         if "attributes" not in path_info:
             print(f"Missing attributes in {path_info}")
