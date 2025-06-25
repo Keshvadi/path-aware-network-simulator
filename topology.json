@@ -42,6 +42,11 @@
             "reset": 0
         }
     },
+    "attributes": [
+        "high_cost",
+        "secure",
+        "low_latency"
+    ],
     "strategies": [
         "greedy_speed_demon",
         "cautious_operator",
@@ -56,5 +61,17 @@
             "hard_reset": 0.01,
             "soft_reset": 0.99
         }
+    },
+    "simulation": {
+        "duration": "",
+        "time_step": "",
+        "logging": true
+    },
+    "events": {
+        "time": "",
+        "type": "",
+        "agent": "",
+        "path": "",
+        "packets": ""
     }
 }
