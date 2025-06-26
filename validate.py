@@ -1,5 +1,5 @@
 import json 
-# python script to validate the json file 
+# python script to validate the json file and load the json data
 
 def load_data(filename):
     with open("topology.json", "r") as file: 
@@ -8,7 +8,6 @@ def load_data(filename):
 
 # validate if the json exists and is valid json format 
 def validate(filename):
-   
         try:
             with open(filename, "r") as file:
                 data = json.load(file) # put JSON-data to a variable
@@ -16,10 +15,10 @@ def validate(filename):
                 return data
         except json.decoder.JSONDecodeError:
             print("Invalid JSON")  # in case json is invalid
-            return None
+            return False
         except FileNotFoundError:
             print("File not found")
-            return None 
+            return False 
         
 
 # validate the data in the json file 
@@ -57,18 +56,43 @@ def validate_keys(filename):
         if "attributes" not in path_info:
             print(f"Missing attributes in {path_info}")
             return False 
+        if "attributes" not in data:
+            print("Missing attribute in Json")
         elif not isinstance(path_info["attributes"], list):
-            print(f"false datatype in {path_info}")
+            print("Attributes not a list")
             return False 
+        for attr in data["attributes"]:
+            if not isinstance(attr, str):
+                print(f"Attribute {attr} is wrong data format")
+                return False 
+    
+        if "strategies" not in data:
+            print("missing strategies")
+        for strat in data["strategies"]:
+            if not isinstance(strat, str):
+                print(f"Strategies {strat} is wrong data format")
+      
+
+        if "knobs" not in data:
+            print("Missing Knobs in Json")
+        for knob, knob_value in data.get("knobs", {}).items():
+            if not isinstance(knob_value, dict):
+                print(f"Knobs {knob} is wrong data format")
+                return False
+            for key, value in knob_value.items():
+                if not isinstance(value, (float, int)):
+                    print(f"Knob value {key} in {knob} is not a number")
+                    return False
 
         print("data exists & correct format")   
         return True 
 
     except json.decoder.JSONDecodeError:
         print("Invalid JSON")  # in case json is invalid
-        return None
+        return False
 
 
+#class for the whole json file
 class Topology: 
     def __init__(self, paths, agents, strategy, knob):
         self.paths = paths
@@ -81,16 +105,18 @@ class Topology:
         return f"Topology(paths={len(self.paths)}, agents={len(self.agents)})" 
 
 
+#load topology file  & data 
 def load_topology(data):
     agents = parse_agents(data)
     paths = parse_paths(data)
     strategy = data.get("strategies", [])
-    knob = data.get("knobs", {})
+    knob = Knobs(data.get("knobs", {}))
     return Topology(paths=paths, agents=agents, strategy=strategy, knob=knob)
 
 
-class Path: 
 
+# class for the path 
+class Path: 
     def __init__(self, path, capacity, latency, bandwidth, attributes):
        self.path = path
        self.capacity = capacity 
@@ -108,10 +134,6 @@ class Path:
 
     def is_high_cost(self):
         return "high_cost" in self.attributes
-
-
-
-#paths_data = data["paths"]
 
 
 #create instance object of the path data
@@ -158,46 +180,34 @@ def parse_agents(data):
       
 
 
-class Strategies: 
-    def __init__(self):
-        pass 
+class Strategy: 
+    def select_path(self):
+        pass         
 
 
-class Greedy(Strategies):
-    pass 
+class Greedy(Strategy):
+    def select_path(self):
+        pass   
 
-class Cautious(Strategies):
-    pass
+class Cautious(Strategy):
+    def select_path(self):
+        pass  
 
-class Rule_follower(Strategies):
-    pass 
+class Rule_follower(Strategy):
+    def select_path(self):
+        pass   
 
 
 
 class Knobs: 
-    def __init__(self):
-        pass
-
-class Responsive(Knobs):
-    pass
-
-class Reset(Knobs):
-    pass 
+    def __init__(self, knobs_dict):
+        self.responsiveness = knobs_dict.get("responsiveness", {})
+        self.reset = knobs_dict.get("reset", {}) 
 
 
 
 def main():
-    #data = validate("topology.json")
-    # if data: 
-    #     for key, value in data["paths"].items():
-    #         print(key, value)
-    #     for key, value in (data["agents"].items()):
-    #         print(key, value)
-    #     print(data["strategies"])
-    #     for key, value in data["knobs"].items():
-    #         print(key, value)
     filename = "topology.json"
-
     data = load_data(filename)
 
     validate_keys("topology.json")
