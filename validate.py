@@ -38,7 +38,10 @@ def validate_keys(filename):
                     return False
                 elif not isinstance(path_info[key], int):
                     print(f"{key} in {path_name} is not an integer")
-                    return False 
+                    return False              
+            if "attributes" not in path_info:
+                print(f"Missing attributes in {path_info}")
+                return False 
                 
                 
         for agent_name, agent in data["agents"].items():
@@ -52,10 +55,7 @@ def validate_keys(filename):
                 elif key == "responsiveness" and not isinstance(agent[key], (float, int)):
                     print(f"{key} in agent {agent.get('name', '[unnamed]')} is not a float")
                     return False
-                
-        if "attributes" not in path_info:
-            print(f"Missing attributes in {path_info}")
-            return False 
+  
         if "attributes" not in data:
             print("Missing attribute in Json")
         elif not isinstance(path_info["attributes"], list):
@@ -90,6 +90,10 @@ def validate_keys(filename):
     except json.decoder.JSONDecodeError:
         print("Invalid JSON")  # in case json is invalid
         return False
+    
+    except FileNotFoundError:
+        print("File not found")
+        return False
 
 
 #class for the whole json file
@@ -102,7 +106,7 @@ class Topology:
 
 
     def __repr__(self):
-        return f"Topology(paths={len(self.paths)}, agents={len(self.agents)})" 
+        return f"Topology(paths={len(self.paths)}, agents={len(self.agents)}, strategies={len(self.strategy)})" 
 
 
 #load topology file  & data 
@@ -210,7 +214,10 @@ def main():
     filename = "topology.json"
     data = load_data(filename)
 
-    validate_keys("topology.json")
+    
+    if not validate_keys("topology.json"):
+        print("Validation failed!")
+        return 
 
     topology = load_topology(data)
     print(topology)
