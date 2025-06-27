@@ -1,6 +1,8 @@
 import json 
 # python script to validate the json file and load the json data
 
+
+# load json file 
 def load_data(filename):
     with open("topology.json", "r") as file: 
         return json.load(file)
@@ -43,7 +45,7 @@ def validate_keys(filename):
                 print(f"Missing attributes in {path_info}")
                 return False 
                 
-                
+        # validate agents         
         for agent_name, agent in data["agents"].items():
             for key in ["cwnd", "number_of_packets", "strategy", "responsiveness", "reset"]:
                 if key not in agent: 
@@ -56,6 +58,7 @@ def validate_keys(filename):
                     print(f"{key} in agent {agent.get('name', '[unnamed]')} is not a float")
                     return False
   
+
         if "attributes" not in data:
             print("Missing attribute in Json")
         elif not isinstance(path_info["attributes"], list):
@@ -96,7 +99,7 @@ def validate_keys(filename):
         return False
 
 
-#class for the whole json file
+#class for the whole topology
 class Topology: 
     def __init__(self, paths, agents, strategy, knob):
         self.paths = paths
@@ -119,7 +122,7 @@ def load_topology(data):
 
 
 
-# class for the path 
+# class for the paths 
 class Path: 
     def __init__(self, path, capacity, latency, bandwidth, attributes):
        self.path = path
@@ -155,7 +158,7 @@ def parse_paths(data):
     return path_obj 
       
         
-
+# class for the agents
 class Agent: 
     def __init__(self, number_of_packets, cwnd, strategy, responsiveness, reset):
         self.number_of_packets = number_of_packets
@@ -183,12 +186,12 @@ def parse_agents(data):
     return agent_obj 
       
 
-
+# class for the strategy (parent class)
 class Strategy: 
     def select_path(self):
         pass         
 
-
+# classes for the strategies - inherit from strategy
 class Greedy(Strategy):
     def select_path(self):
         pass   
@@ -202,7 +205,7 @@ class Rule_follower(Strategy):
         pass   
 
 
-
+# class for the knobs 
 class Knobs: 
     def __init__(self, knobs_dict):
         self.responsiveness = knobs_dict.get("responsiveness", {})
