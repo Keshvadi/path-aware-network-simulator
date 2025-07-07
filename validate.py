@@ -9,7 +9,7 @@ def load_data(filename):
 
 
 # validate if the json exists and is valid json format 
-def validate(filename):
+def validate_keys(filename):
         try:
             with open(filename, "r") as file:
                 data = json.load(file) # put JSON-data to a variable
@@ -24,7 +24,7 @@ def validate(filename):
         
 
 # validate the data in the json file 
-def validate_keys(filename):
+def validate_data(filename):
     try:
         with open(filename, "r") as file:
             data = json.load(file)
@@ -99,133 +99,3 @@ def validate_keys(filename):
         return False
 
 
-#class for the whole topology
-class Topology: 
-    def __init__(self, paths, agents, strategy, knob):
-        self.paths = paths
-        self.agents = agents
-        self.strategy = strategy
-        self.knob = knob 
-
-
-    def __repr__(self):
-        return f"Topology(paths={len(self.paths)}, agents={len(self.agents)}, strategies={len(self.strategy)})" 
-
-
-#load topology file  & data 
-def load_topology(data):
-    agents = parse_agents(data)
-    paths = parse_paths(data)
-    strategy = data.get("strategies", [])
-    knob = Knobs(data.get("knobs", {}))
-    return Topology(paths=paths, agents=agents, strategy=strategy, knob=knob)
-
-
-
-# class for the paths 
-class Path: 
-    def __init__(self, path, capacity, latency, bandwidth, attributes):
-       self.path = path
-       self.capacity = capacity 
-       self.latency = latency
-       self.bandwidth = bandwidth 
-       self.attributes = attributes 
-
-
-    def __repr__(self):
-        return f"Path({self.path}, cap={self.capacity}, lat={self.latency}, bw={self.bandwidth}, attr={self.attributes})"
-    
-
-    def save_attributes(self):
-        pass
-
-    def is_high_cost(self):
-        return "high_cost" in self.attributes
-
-
-#create instance object of the path data
-def parse_paths(data):
-    path_obj = {}
-    for path_name, path_info in data["paths"].items():
-        path_obj[path_name] = Path(
-            path=path_name,
-            capacity=path_info["capacity"],
-            latency=path_info["latency"],
-            bandwidth=path_info["bandwidth"],
-            attributes=path_info["attributes"]
-        )
-    print ("path_obj:", path_obj)   
-    return path_obj 
-      
-        
-# class for the agents
-class Agent: 
-    def __init__(self, number_of_packets, cwnd, strategy, responsiveness, reset):
-        self.number_of_packets = number_of_packets
-        self.cwnd = cwnd 
-        self.strategy = strategy 
-        self.responsiveness = responsiveness
-        self.reset = reset 
-
-    
-    def __repr__(self):
-        return f"Agent(packets={self.number_of_packets}, cwnd={self.cwnd}, strategy={self.strategy}, resp={self.responsiveness}, reset={self.reset})"
-
-
-def parse_agents(data):
-    agent_obj = {}
-    for agent_name, agent_info in data["agents"].items():
-        agent_obj[agent_name] = Agent(
-            number_of_packets=agent_info["number_of_packets"],
-            cwnd=agent_info["cwnd"],
-            strategy=agent_info["strategy"],
-            responsiveness=agent_info["responsiveness"],
-            reset=agent_info["reset"]
-        )
-    print ("agent_obj:", agent_obj)   
-    return agent_obj 
-      
-
-# class for the strategy (parent class)
-class Strategy: 
-    def select_path(self):
-        pass         
-
-# classes for the strategies - inherit from strategy
-class Greedy(Strategy):
-    def select_path(self):
-        pass   
-
-class Cautious(Strategy):
-    def select_path(self):
-        pass  
-
-class Rule_follower(Strategy):
-    def select_path(self):
-        pass   
-
-
-# class for the knobs 
-class Knobs: 
-    def __init__(self, knobs_dict):
-        self.responsiveness = knobs_dict.get("responsiveness", {})
-        self.reset = knobs_dict.get("reset", {}) 
-
-
-
-def main():
-    filename = "topology.json"
-    data = load_data(filename)
-
-    
-    if not validate_keys("topology.json"):
-        print("Validation failed!")
-        return 
-
-    topology = load_topology(data)
-    print(topology)
-
-    
-
-if __name__ == "__main__":
-    main() 
