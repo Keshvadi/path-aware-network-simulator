@@ -37,7 +37,7 @@
         "default": {
             "cwnd": 0,
             "number_of_packets": 0,
-            "strategy": "greedy_speed_demon",
+            "strategy": "Greedy",
             "responsiveness": 0,
             "reset": 0
         }
@@ -48,9 +48,9 @@
         "low_latency"
     ],
     "strategies": [
-        "greedy_speed_demon",
-        "cautious_operator",
-        "rule_follower"
+        "Greedy",
+        "Cautious",
+        "Rule_follower"
     ],
     "knobs": {
         "responsiveness": {
