@@ -2,8 +2,11 @@
 from validate import validate_keys, validate_data
 
 
-#class for the whole topology
+# load and parse the topology from a JSON file, create classes and objects for the topology, paths, agents, strategies, and knobs
+
+
 class Topology: 
+    # class for the whole topology
     def __init__(self, paths, agents, strategy, knob):
         self.paths = paths
         self.agents = agents
@@ -15,18 +18,22 @@ class Topology:
         return f"Topology(paths={len(self.paths)}, agents={len(self.agents)}, strategies={len(self.strategy)})" 
 
 
-#load topology file  & data 
 def load_topology(data, env):
-    agents = parse_agents(data, env)
-    paths = parse_paths(data, env)
+    # Load the topology from the validated data
+    agents = parse_agents(data, env) # parse agents from the data
+    if not agents:
+        raise ValueError("No agents found in the data")
+    paths = parse_paths(data, env) # parse paths from the data
+    if not paths:
+        raise ValueError("No paths found in the data") 
     strategy = data.get("strategies", [])
     knob = Knobs(data.get("knobs", {}))
     return Topology(paths=paths, agents=agents, strategy=strategy, knob=knob)
 
 
 
-# class for the paths 
 class Path: 
+    # class for the path object
     def __init__(self, env, path, capacity, latency, bandwidth, attributes):
        self.env = env 
        self.path = path
@@ -47,8 +54,10 @@ class Path:
         return "high_cost" in self.attributes
 
 
-#create instance object of the path data
 def parse_paths(data, env):
+    # Parse the paths from the data and create Path objects
+    if "paths" not in data:
+        raise ValueError("No paths found in the data")
     path_obj = {}
     for path_name, path_info in data["paths"].items():
         path_obj[path_name] = Path(
@@ -63,16 +72,14 @@ def parse_paths(data, env):
     return path_obj 
       
         
-# class for the agents
 class AgentConfig: 
+    # class for the agent configuration
     def __init__(self, number_of_packets, cwnd, strategy, responsiveness, reset):
         self.number_of_packets = number_of_packets
         self.cwnd = cwnd 
         self.strategy = strategy 
         self.responsiveness = responsiveness
         self.reset = reset 
-
-
 
 
     def __repr__(self):
