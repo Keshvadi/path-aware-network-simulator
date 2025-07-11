@@ -65,6 +65,5 @@ class Test_agent_aimd(unittest.TestCase):
         self.assertEqual(self.agent.packet_loss_counter, 0)
 
 
-
 if __name__ == "__main__":
     unittest.main()  # Run the test cases

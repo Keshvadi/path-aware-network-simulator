@@ -25,6 +25,7 @@ def validate_keys(filename):
 
 # validate the data in the json file 
 def validate_data(filename):
+
     try:
         with open(filename, "r") as file:
             data = json.load(file)

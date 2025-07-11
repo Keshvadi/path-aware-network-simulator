@@ -9,8 +9,7 @@ import os
 # Agents have a congestion window (cwnd) and send packets until they reach a defined number
 
 
-#simpy resource: modell resources with defined capacity --> agents need to reserve a slot 
-# --> path object with 3 capa --> 3 agents can send at the same time --> 4. agent has to wait 
+#IMPORTANT: agent is currently modified (hardcoded) to use Greedy strategy, can be changed in the topology.json file
 
 
 class Agent:
@@ -27,7 +26,7 @@ class Agent:
 
         self.cwnd = config.cwnd #congestion window size
         self.total_packets = config.number_of_packets #total number of packets to send
-        self.knob = config.knob 
+        # self.knob = config.knob 
         self.m = config.responsiveness #["responsiveness"]
         self.r = config.reset #["reset"]
 
@@ -71,16 +70,19 @@ class Agent:
             print(f"[t={receive_time}] {self.name} packet lost via {path.path} (cwnd={self.cwnd:.2f})")
 
 
+
+    #additive increase multiplicative decrease (AIMD) algorithm
   
     def on_ack(self):
-        # auccesful delievered packet, increase congestion window by m
+        # additive increase 
+        # succesful delievered packet, increase congestion window by m
         self.cwnd += self.m
         self.in_flight -= 1
         self.packet_loss_counter = 0 
 
-
-    #packet loss on the way
     def on_loss(self):
+        # multiplicative decrease
+        # packet lost, decrease congestion window by half
         self.cwnd = max(1, self.cwnd / 2) 
         self.in_flight -= 1
         self.packet_loss_counter += 1
@@ -111,7 +113,7 @@ class Topology:
         self.paths = paths
         self.agents = agents
         self.strategy = strategy
-        self.knob = knob 
+        # self.knob = knob 
 
 
     def __repr__(self):
@@ -205,7 +207,6 @@ class DataCollector:
         })
 
 
-
     def log_path_usage(self, path_name):
         self.path_usage[path_name] = self.path_usage.get(path_name, 0) + 1
 
@@ -218,6 +219,14 @@ class DataCollector:
 def monitor(env, agents, duration):
     for remaining in range(duration, 0, -1):
         print(f"Monitoring: {remaining} steps remaining")
+
+        for agent in agents:
+            print(f"  Agent '{agent.name}':")
+            print(f"    CWND:        {agent.cwnd:.2f}")
+            print(f"    In-flight:   {agent.in_flight}")
+            print(f"    Sent packets:{agent.sent_packets}/{agent.total_packets}")
+            print(f"    Losses:      {agent.packet_loss_counter}")
+
         yield env.timeout(10)
     print("Monitoring finished")
 
@@ -258,9 +267,6 @@ def main():
     # Start the monitoring process
     env.process(monitor(env, agents, duration=10))
     env.run(until=100)
-
-
-
 
 
 

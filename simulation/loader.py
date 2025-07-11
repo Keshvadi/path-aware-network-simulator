@@ -31,7 +31,6 @@ def load_topology(data, env):
     return Topology(paths=paths, agents=agents, strategy=strategy, knob=knob)
 
 
-
 class Path: 
     # class for the path object
     def __init__(self, env, path, capacity, latency, bandwidth, attributes):
@@ -87,12 +86,15 @@ class AgentConfig:
 
 
 def parse_agents(data, env):
+    # Parse the agents from the data and create AgentConfig objects
+    if "agents" not in data:
+        raise ValueError("No agents found in the data")
     agent_obj = {}
     for agent_name, agent_info in data["agents"].items():
         agent_obj[agent_name] = AgentConfig(
             number_of_packets=agent_info["number_of_packets"],
             cwnd=agent_info["cwnd"],
-            strategy=agent_info["strategy"],
+             strategy=agent_info["strategy"],
             responsiveness=agent_info["responsiveness"],
             reset=agent_info["reset"]
         )
@@ -107,6 +109,7 @@ class Strategy:
 
 class Knobs:
     def __init__(self, knobs_dict):
+        
         self.responsiveness = knobs_dict.get("responsiveness", {})
         self.reset = knobs_dict.get("reset", {})
 
@@ -117,6 +120,7 @@ class Knobs:
 
 
 def main():
+
     filename = "topology.json"
 
     data = validate_keys(filename)
