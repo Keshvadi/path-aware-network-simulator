@@ -1,0 +1,89 @@
+## **Simulation Experiment Plan**
+
+Here I've provided a series of simulation experiments to be conducted. 
+The goal is to gather data on the performance of each path selection strategy under various network conditions. 
+The output from these runs (and probably follow-up experiments) will form the basis of the "Results" and "Discussion" sections of our research paper.
+
+For each run, you should save the output to a uniquely named CSV file (e.g., `results_min_rtt_50_agents.csv`) to avoid overwriting previous results.
+
+---
+
+### **Experiment 1: Baseline Strategy Comparison**
+
+* The goal is to establish the fundamental performance characteristics of our three core strategies under a standard, high-contention scenario. 
+This is the primary experiment for our paper.
+
+* Run the simulator three times for each strategy while keeping all other parameters constant.
+
+* **Simulation Parameters:**
+    * `CONFIG_FILE`: Use the default `topology.json`.
+    * `NUM_AGENTS`: `50`
+    * `SIMULATION_DURATION`: `300`
+    * `STRATEGY`:
+        * Run 1: `"min_rtt"`
+        * Run 2: `"min_load"`
+        * Run 3: `"attribute_aware"`
+
+* **What to Look For:**
+    * **Min-RTT:** Confirm the high-amplitude oscillations in path load and total throughput.
+    * **Min-Load:** Observe how agents distribute themselves across `path_1` and `path_2`. The load on each path should be much more stable and remain below capacity.
+    * **Attribute-Aware:** Note how `path_3` is completely ignored. The behavior should be identical to the `min_rtt` run, but only using `path_1` and `path_2`.
+
+---
+
+### **Experiment 2: Scalability Analysis (Varying Network Load)**
+
+* The goal is to understand how the performance of the two primary strategies (Min-RTT and Min-Load) degrades or changes as network contention increases.
+* For each of the two strategies, run a series of simulations, sweeping the number of agents from low to very high contention.
+
+* **Simulation Parameters:**
+    * `CONFIG_FILE`: Use the default `topology.json`.
+    * `SIMULATION_DURATION`: `300`
+    * `STRATEGY`: `"min_rtt"` and `"min_load"`
+    * `NUM_AGENTS`: Sweep through the following values: `[10, 25, 50, 100]`
+
+* **What to Look For:**
+    * Does the instability of **Min-RTT** get worse (higher oscillations, more loss) as you add more agents?
+    * How well does **Min-Load** maintain stability as the load increases? Is there a tipping point where it can no longer effectively balance the load and congestion starts to occur?
+    * This data will be perfect for creating plots that show metrics like "Stability vs. Number of Agents".
+
+---
+
+### **Experiment 3: Topology Sensitivity Analysis**
+
+*  The goal is to test if our findings are specific to our initial topology or if they hold true under different network conditions. Here, we create a scenario where the lowest-latency path is also the highest-capacity path.
+* Create a new topology file (below) where the trade-off between latency and capacity is removed. Then, re-run the baseline comparison on this new topology.
+* Note: The source code that i have provided, creates a topology.json file. You need to create this topology as well and chagne the configuration file if you change the topology file name. 
+
+* **New Topology (`topology-alt.json`):**
+    ```json
+    {
+      "paths": [
+        {
+          "id": "path_1",
+          "capacity_mbps": 200,
+          "base_rtt_ms": 50,
+          "attributes": []
+        },
+        {
+          "id": "path_2",
+          "capacity_mbps": 100,
+          "base_rtt_ms": 100,
+          "attributes": []
+        }
+      ]
+    }
+    ```
+
+* **Simulation Parameters:**
+    * `CONFIG_FILE`: `topology-alt.json` (you will need to create this file or modify the helper function in the script).
+    * `NUM_AGENTS`: `50`
+    * `SIMULATION_DURATION`: `300`
+    * `STRATEGY`:
+        * Run 1: `"min_rtt"`
+        * Run 2: `"min_load"`
+
+* **What to Look For:**
+    * **Min-RTT:** All agents will still choose `path_1`. But since its capacity is much higher (200Mbps), will the system still oscillate, or will it be stable?
+    * **Min-Load:** Will agents still try to balance the load by using the suboptimal `path_2`, even though `path_1` is clearly superior in every way? This could be a case where the "cooperative" strategy leads to lower overall network efficiency. This would be a very interesting result to discuss in the paper.
+
