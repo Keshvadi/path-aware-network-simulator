@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 
 
 files = {
-    "min_rtt": "results_min_rtt_50_agents.csv",
-    "min_load": "results_min_load_50_agents.csv",
-    "attribute_aware": "results_attribute_aware_50_agents.csv"
+    "min_rtt": "results_experiment1_min_rtt_50_agents.csv",
+    "min_load": "results_experiment1_min_load_50_agents.csv",
+    #"attribute_aware": "results_experiment1_attribute_aware_50_agents.csv"
 }
 
 paths_to_track = [

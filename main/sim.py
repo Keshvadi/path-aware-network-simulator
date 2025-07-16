@@ -185,7 +185,7 @@ class Simulator:
 
         print("Simulation finished.")
 
-    def save_results(self, output_filepath="results_attribute_min_load_100_agents.csv"):
+    def save_results(self, output_filepath="results_experiment1_attribute_aware_50_agents.csv"):
         """Writes the logged data to a CSV file."""
         if not self.log_data:
             print("No data to save.")
@@ -235,10 +235,10 @@ def create_topology_file(filepath="topology.json"):
 if __name__ == "__main__":
     # --- Simulation Parameters ---
     CONFIG_FILE = "topology.json"
-    NUM_AGENTS = 100
+    NUM_AGENTS = 50
     SIMULATION_DURATION = 300
     # Change this to "min_load" "min_rtt" or "attribute_aware" to test other strategies
-    STRATEGY =  "min_load" #"attribute_aware"
+    STRATEGY =   "attribute_aware" #"min_rtt" #"min_load" 
     
     
      # 1. Create the config file for the simulation
@@ -258,7 +258,7 @@ if __name__ == "__main__":
 
     # 4. Print a small part of the results to the console for immediate feedback
     print("\n--- Sample of Results (first 5 rows of results.csv) ---")
-    with open("results_attribute_min_load_100_agents.csv", 'r') as f:
+    with open("results_experiment1_attribute_aware_50_agents.csv", 'r') as f:
         for i, line in enumerate(f):
             if i > 5:
                 break

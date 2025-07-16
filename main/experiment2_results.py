@@ -2,20 +2,20 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 
-#plotting configurations
+# plotting configurations
 
 files = {
     "min_rtt": [
-        ("10 agents", "results_attribute_min_rtt_10_agents.csv"),
-        ("25 agents", "results_attribute_min_rtt_25_agents.csv"),
-        ("50 agents", "results_attribute_min_rtt_50_agents.csv"),
-        ("100 agents", "results_attribute_min_rtt_100_agents.csv"),
+        ("10 agents", "results_experiment2_min_rtt_10_agents.csv"),
+        ("25 agents", "results_experiment2_min_rtt_25_agents.csv"),
+        ("50 agents", "results_experiment2_min_rtt_50_agents.csv"),
+        ("100 agents", "results_experiment2_min_rtt_100_agents.csv"),
     ],
     "min_load": [
-        ("10 agents", "results_attribute_min_load_10_agents.csv"),
-        ("25 agents", "results_attribute_min_load_25_agents.csv"),
-        ("50 agents", "results_attribute_min_load_50_agents.csv"),
-        ("100 agents", "results_attribute_min_load_100_agents.csv"),
+        ("10 agents", "results_experiment2_min_load_10_agents.csv"),
+        ("25 agents", "results_experiment2_min_load_25_agents.csv"),
+        ("50 agents", "results_experiment2_min_load_50_agents.csv"),
+        ("100 agents", "results_experiment2_min_load_100_agents.csv"),
     ],
 }
 
@@ -36,18 +36,17 @@ for strategy, runs in files.items():
         std = np.std(throughputs)
         data[strategy].append((avg, std))
         if strategy == "min_rtt":
-            labels.append(label)  
+            labels.append(label)
 
 
 x = np.arange(len(labels))  # [0, 1, 2, 3]
-width = 0.35  
+width = 0.35
 
 fig, ax = plt.subplots(figsize=(10, 6))
 rtt_means = [val[0] for val in data["min_rtt"]]
 rtt_stds = [val[1] for val in data["min_rtt"]]
 load_means = [val[0] for val in data["min_load"]]
 load_stds = [val[1] for val in data["min_load"]]
-
 
 
 ax.bar(x - width/2, rtt_means, width,  label='Min-RTT', capsize=5)
@@ -61,5 +60,3 @@ ax.legend()
 ax.grid(True)
 plt.tight_layout()
 plt.show()
-
-
