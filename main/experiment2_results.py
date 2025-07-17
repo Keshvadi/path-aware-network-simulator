@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 # plotting configurations
 
@@ -58,5 +59,36 @@ ax.set_xticks(x)
 ax.set_xticklabels(labels)
 ax.legend()
 ax.grid(True)
+plt.tight_layout()
+plt.show()
+
+
+
+
+agent_counts = [10, 25, 50, 100]
+strategies = ['min_rtt', 'min_load']
+
+results = {}
+
+for strategy in strategies:
+    losses = []
+    for n in agent_counts:
+        filename = f"results_with_loss_{strategy}_{n}_agents.csv"
+        df = pd.read_csv(filename)
+        
+        avg_loss = df['total_loss'].mean()
+        losses.append(avg_loss)
+    
+    results[strategy] = losses
+
+plt.figure(figsize=(8, 5))
+for strategy in strategies:
+    plt.plot(agent_counts, results[strategy], marker='o', label=strategy)
+
+plt.title("Average Packet Loss vs. Number of Agents")
+plt.xlabel("Number of Agents")
+plt.ylabel("Average Packet Loss")
+plt.legend()
+plt.grid(True)
 plt.tight_layout()
 plt.show()
