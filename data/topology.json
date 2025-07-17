@@ -1,0 +1,78 @@
+{
+    "paths": {
+        "path_one": {
+            "capacity": 40,
+            "latency": 40,
+            "bandwidth": 70,
+            "attributes": [
+                "low_cost"
+            ]
+        },
+        "path_two": {
+            "capacity": 60,
+            "latency": 30,
+            "bandwidth": 90,
+            "attributes": [
+                "high_cost"
+            ]
+        },
+        "path_three": {
+            "capacity": 80,
+            "latency": 50,
+            "bandwidth": 80,
+            "attributes": [
+                "low_cost"
+            ]
+        },
+        "path_four": {
+            "capacity": 70,
+            "latency": 10,
+            "bandwidth": 40,
+            "attributes": [
+                "high_cost"
+            ]
+        }
+    },
+    "agents": {
+        "default": {
+            "cwnd": 10,
+            "number_of_packets": 30,
+            "strategy": "Greedy",
+            "responsiveness": 0.9,
+            "reset": 0.1
+        }
+    },
+    "attributes": [
+        "high_cost",
+        "secure",
+        "low_latency"
+    ],
+    "strategies": [
+        "Greedy",
+        "Cautious",
+        "Rule_follower"
+    ],
+    "knobs": {
+        "responsiveness": {
+            "high": 0.99,
+            "low": 0.01
+        },
+        "reset": {
+            "hard_reset": 0.01,
+            "soft_reset": 0.99
+        }
+    },
+    "simulation": {
+        "duration": 10,
+        "time_step": 1,
+        "logging": true
+    },
+    "events": [
+        {
+            "time": 0,
+            "type": "sending_packet",
+            "agent": "agent_name",
+            "path": "path_one"
+        }
+    ]
+}

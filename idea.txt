@@ -1,0 +1,119 @@
+3-4 distinct network paths 
+from a source to a destination 
+(different highways)
+
+rules of congestion: 
+what happens when a path gets too crowded
+--> each path has a fixed capacity
+--> if the load exceeds the capacity
+    agents experience packet loss
+
+50 agents
+all send data at the same time
+each agent has internal speed
+(congestion window cwnd)
+
+
+
+variables:
+- paths 
+- congestion 
+- bandwidth
+- size/number of packets 
+- congestion
+- feedback
+
+
+- clock time 
+- invoke event routine 
+
+--------------------------------------------------
+
+
+
+Simulator:
+Path: 
+Capacity 
+Load 
+Congestion Control & packet loss
+AIMD
+Path Selection Strategies: selfish, altruistic, random, cost-aware
+
+
+
+
+--------------------------------------------------
+
+path a : capacity: 
+path b : capacity: 
+path c : capacity: 
+path d : capacity: 
+
+
+agent (1 - 50) : load 
+(agents choose paths to send their data; cooperative, selfish, rule-following)
+
+if load > capacity => loss 
+
+cwnd 
+
+
+feedback
+probability 0 
+
+AIMD
+
+selfish
+cost aware
+knobs r / m 
+
+responsiveness (m) : how likely agents are to switch paths 
+                    probability that agent will switch to a different path
+                    (scale 0 to 1:
+                    high - close to 1: very jumpy
+                    low - close to 1: 
+                    might switch but probably not
+                    )
+
+
+reset softness (r): congestion window cwnd gets reset depending on r
+                    (scale 0 to 1
+                    r = 0 - hard reset: agent starts over at 
+                        a slow speed on the new path)
+                    r = 1 - soft reset: agent keeps all of its speed
+                        when switching 
+
+
+brains:             #1 greedy: simple & selfish
+                                high efficiency, high loss, low fairness, low stability
+                    #2 cautious: always chooses the path with the least traffic
+                                lower efficiency, lower loss, higher fairness, more stability
+                    #3 rule-follower: first low cost then speed demon 
+                                moderate in everything, low cost
+
+
+cwnd: congestion window number that represents how many packets each 
+        agent is allowed to send at once, changes dynamically
+        based on feedback (packet loss or no loss)
+
+        if packet_loss:
+            cwnd *= 0.5      #cwnd multiplicative decrease 
+        else:
+            cwnd += 1       #additive increase 
+
+
+
+----------------------------------------------------------
+
+
+
+state machine:
+
+state1 ----> event ----> state2 
+
+
+----------------------------------------------------------
+
+
+
+
