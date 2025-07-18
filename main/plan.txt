@@ -51,9 +51,13 @@ This is the primary experiment for our paper.
 
 ### **Experiment 3: Topology Sensitivity Analysis**
 
-*  The goal is to test if our findings are specific to our initial topology or if they hold true under different network conditions. Here, we create a scenario where the lowest-latency path is also the highest-capacity path.
-* Create a new topology file (below) where the trade-off between latency and capacity is removed. Then, re-run the baseline comparison on this new topology.
-* Note: The source code that i have provided, creates a topology.json file. You need to create this topology as well and chagne the configuration file if you change the topology file name. 
+*  The goal is to test if our findings are specific to our initial topology 
+*  or if they hold true under different network conditions. 
+*  Here, we create a scenario where the lowest-latency path is also the highest-capacity path.
+*  Create a new topology file (below) where the trade-off between latency and capacity is removed. 
+*  Then, re-run the baseline comparison on this new topology.
+*  Note: The source code that i have provided, creates a topology.json file. 
+*  You need to create this topology as well and chagne the configuration file if you change the topology file name. 
 
 * **New Topology (`topology-alt.json`):**
     ```json
