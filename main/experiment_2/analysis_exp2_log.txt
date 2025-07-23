@@ -1,0 +1,23 @@
+2025-07-23 14:26:04 - === Starting analysis ===
+2025-07-23 14:26:04 - results_experiment2_min_load_100_agents.csv: osc=68.88, loss=50.01, tput=200.23, fairness=57.6
+2025-07-23 14:26:04 - results_experiment2_min_load_10_agents.csv: osc=6.82, loss=0.0, tput=20.01, fairness=5.77
+2025-07-23 14:26:04 - results_experiment2_min_load_25_agents.csv: osc=17.92, loss=0.0, tput=50.04, fairness=14.24
+2025-07-23 14:26:05 - results_experiment2_min_load_500_agents.csv: osc=342.99, loss=850.72, tput=999.71, fairness=287.6
+2025-07-23 14:26:05 - results_experiment2_min_load_50_agents.csv: osc=36.03, loss=0.17, tput=100.11, fairness=28.44
+2025-07-23 14:26:05 - results_experiment2_min_rtt_100_agents.csv: osc=20.69, loss=49.93, tput=149.89, fairness=86.29
+2025-07-23 14:26:05 - results_experiment2_min_rtt_10_agents.csv: osc=6.4, loss=0.05, tput=74.79, fairness=43.04
+2025-07-23 14:26:05 - results_experiment2_min_rtt_25_agents.csv: osc=7.8, loss=0.25, tput=75.57, fairness=43.49
+2025-07-23 14:26:05 - results_experiment2_min_rtt_500_agents.csv: osc=26.47, loss=403.88, tput=501.48, fairness=288.75
+2025-07-23 14:26:05 - results_experiment2_min_rtt_50_agents.csv: osc=10.43, loss=0.88, tput=76.49, fairness=44.07
+2025-07-23 14:26:05 - results_experiment2_min_load_10_agents.csv: osc=6.82, loss=0.0, tput=20.01, fairness=5.77
+2025-07-23 14:26:05 - results_experiment2_min_load_25_agents.csv: osc=17.92, loss=0.0, tput=50.04, fairness=14.24
+2025-07-23 14:26:05 - results_experiment2_min_load_50_agents.csv: osc=36.03, loss=0.17, tput=100.11, fairness=28.44
+2025-07-23 14:26:05 - results_experiment2_min_load_100_agents.csv: osc=68.88, loss=50.01, tput=200.23, fairness=57.6
+2025-07-23 14:26:05 - results_experiment2_min_load_500_agents.csv: osc=342.99, loss=850.72, tput=999.71, fairness=287.6
+2025-07-23 14:26:05 - results_experiment2_min_rtt_10_agents.csv: osc=6.4, loss=0.05, tput=74.79, fairness=43.04
+2025-07-23 14:26:05 - results_experiment2_min_rtt_25_agents.csv: osc=7.8, loss=0.25, tput=75.57, fairness=43.49
+2025-07-23 14:26:05 - results_experiment2_min_rtt_50_agents.csv: osc=10.43, loss=0.88, tput=76.49, fairness=44.07
+2025-07-23 14:26:05 - results_experiment2_min_rtt_100_agents.csv: osc=20.69, loss=49.93, tput=149.89, fairness=86.29
+2025-07-23 14:26:05 - results_experiment2_min_rtt_500_agents.csv: osc=26.47, loss=403.88, tput=501.48, fairness=288.75
+2025-07-23 14:26:05 - === Analysis complete ===
+

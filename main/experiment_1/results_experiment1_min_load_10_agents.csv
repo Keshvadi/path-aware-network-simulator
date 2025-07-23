@@ -1,6 +1,6 @@
 timestep,total_throughput,agent_0_path,agent_0_cwnd,agent_1_path,agent_1_cwnd,agent_2_path,agent_2_cwnd,agent_3_path,agent_3_cwnd,agent_4_path,agent_4_cwnd,agent_5_path,agent_5_cwnd,agent_6_path,agent_6_cwnd,agent_7_path,agent_7_cwnd,agent_8_path,agent_8_cwnd,agent_9_path,agent_9_cwnd,path_1_load,path_2_load,path_3_load,path_1_loss,path_2_loss,path_3_loss,total_loss
-0,20.221566803617318,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.22,path_2,2.0,path_2,2.0,10.9,1.22,12.28,0.0,0.0,0.0,0.0
-1,20.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,0,20.22,0,0.0,0.0,0.0,0.0
+0,22.1716694629215,path_3,2.0,path_3,2.86,path_3,2.0,path_3,2.0,path_3,2.0,path_3,2.0,path_3,2.0,path_3,2.0,path_3,2.0,path_3,3.31,13.7,10.07,4.17,0.0,0.0,0.0,0.0
+1,20.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,0,0,22.17,0.0,0.0,0.0,0.0
 2,20.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,20.0,0,0,0.0,0.0,0.0,0.0
 3,20.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,path_1,2.0,0,20.0,0,0.0,0.0,0.0,0.0
 4,20.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,path_2,2.0,20.0,0,0,0.0,0.0,0.0,0.0

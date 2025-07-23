@@ -1,0 +1,45 @@
+2025-07-23 14:17:32 - === Starting analysis ===
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_100_agents.csv: osc=20.32, loss=49.75, tput=149.94, fairness=86.24
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_10_agents.csv: osc=6.24, loss=0.06, tput=74.86, fairness=43.1
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_150_agents.csv: osc=8.6, loss=50.72, tput=150.44, fairness=86.56
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_250_agents.csv: osc=13.47, loss=151.41, tput=250.73, fairness=144.29
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_25_agents.csv: osc=7.6, loss=0.17, tput=75.52, fairness=43.45
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_500_agents.csv: osc=28.21, loss=403.83, tput=501.44, fairness=288.43
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_50_agents.csv: osc=10.68, loss=0.93, tput=76.55, fairness=44.11
+2025-07-23 14:17:32 - results_experiment1_min_load_100_agents.csv: osc=68.89, loss=50.27, tput=200.16, fairness=57.56
+2025-07-23 14:17:32 - results_experiment1_min_load_10_agents.csv: osc=7.1, loss=0.0, tput=20.01, fairness=5.71
+2025-07-23 14:17:32 - results_experiment1_min_load_150_agents.csv: osc=105.88, loss=150.05, tput=299.93, fairness=85.56
+2025-07-23 14:17:32 - results_experiment1_min_load_250_agents.csv: osc=171.65, loss=349.87, tput=499.9, fairness=143.82
+2025-07-23 14:17:32 - results_experiment1_min_load_25_agents.csv: osc=17.76, loss=0.0, tput=50.02, fairness=14.27
+2025-07-23 14:17:32 - results_experiment1_min_load_500_agents.csv: osc=353.12, loss=850.86, tput=999.78, fairness=285.13
+2025-07-23 14:17:32 - results_experiment1_min_load_50_agents.csv: osc=34.5, loss=0.0, tput=100.09, fairness=28.78
+2025-07-23 14:17:32 - results_experiment1_min_rtt_100_agents.csv: osc=21.17, loss=50.12, tput=149.94, fairness=86.31
+2025-07-23 14:17:32 - results_experiment1_min_rtt_10_agents.csv: osc=6.14, loss=0.05, tput=74.84, fairness=43.09
+2025-07-23 14:17:32 - results_experiment1_min_rtt_150_agents.csv: osc=9.01, loss=50.56, tput=150.41, fairness=86.45
+2025-07-23 14:17:32 - results_experiment1_min_rtt_250_agents.csv: osc=14.08, loss=151.54, tput=250.73, fairness=144.27
+2025-07-23 14:17:32 - results_experiment1_min_rtt_25_agents.csv: osc=7.78, loss=0.3, tput=75.72, fairness=43.59
+2025-07-23 14:17:32 - results_experiment1_min_rtt_500_agents.csv: osc=28.73, loss=403.94, tput=501.46, fairness=288.43
+2025-07-23 14:17:32 - results_experiment1_min_rtt_50_agents.csv: osc=10.43, loss=0.94, tput=76.57, fairness=44.14
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_10_agents.csv: osc=6.24, loss=0.06, tput=74.86, fairness=43.1
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_25_agents.csv: osc=7.6, loss=0.17, tput=75.52, fairness=43.45
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_50_agents.csv: osc=10.68, loss=0.93, tput=76.55, fairness=44.11
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_100_agents.csv: osc=20.32, loss=49.75, tput=149.94, fairness=86.24
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_150_agents.csv: osc=8.6, loss=50.72, tput=150.44, fairness=86.56
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_250_agents.csv: osc=13.47, loss=151.41, tput=250.73, fairness=144.29
+2025-07-23 14:17:32 - results_experiment1_attribute_aware_500_agents.csv: osc=28.21, loss=403.83, tput=501.44, fairness=288.43
+2025-07-23 14:17:32 - results_experiment1_min_load_10_agents.csv: osc=7.1, loss=0.0, tput=20.01, fairness=5.71
+2025-07-23 14:17:32 - results_experiment1_min_load_25_agents.csv: osc=17.76, loss=0.0, tput=50.02, fairness=14.27
+2025-07-23 14:17:32 - results_experiment1_min_load_50_agents.csv: osc=34.5, loss=0.0, tput=100.09, fairness=28.78
+2025-07-23 14:17:32 - results_experiment1_min_load_100_agents.csv: osc=68.89, loss=50.27, tput=200.16, fairness=57.56
+2025-07-23 14:17:32 - results_experiment1_min_load_150_agents.csv: osc=105.88, loss=150.05, tput=299.93, fairness=85.56
+2025-07-23 14:17:32 - results_experiment1_min_load_250_agents.csv: osc=171.65, loss=349.87, tput=499.9, fairness=143.82
+2025-07-23 14:17:32 - results_experiment1_min_load_500_agents.csv: osc=353.12, loss=850.86, tput=999.78, fairness=285.13
+2025-07-23 14:17:32 - results_experiment1_min_rtt_10_agents.csv: osc=6.14, loss=0.05, tput=74.84, fairness=43.09
+2025-07-23 14:17:32 - results_experiment1_min_rtt_25_agents.csv: osc=7.78, loss=0.3, tput=75.72, fairness=43.59
+2025-07-23 14:17:32 - results_experiment1_min_rtt_50_agents.csv: osc=10.43, loss=0.94, tput=76.57, fairness=44.14
+2025-07-23 14:17:32 - results_experiment1_min_rtt_100_agents.csv: osc=21.17, loss=50.12, tput=149.94, fairness=86.31
+2025-07-23 14:17:32 - results_experiment1_min_rtt_150_agents.csv: osc=9.01, loss=50.56, tput=150.41, fairness=86.45
+2025-07-23 14:17:32 - results_experiment1_min_rtt_250_agents.csv: osc=14.08, loss=151.54, tput=250.73, fairness=144.27
+2025-07-23 14:17:32 - results_experiment1_min_rtt_500_agents.csv: osc=28.73, loss=403.94, tput=501.46, fairness=288.43
+2025-07-23 14:17:32 - === Analysis complete ===
+
