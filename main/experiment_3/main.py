@@ -2,11 +2,11 @@ import json
 import csv
 import random
 import os
+import logging
 import pandas as pd
-import logging 
 
-# ========================
-# ======================================================
+
+# ==============================================================================
 # COMPONENT 1: DATA MODELS (The Static World)
 # ==============================================================================
 
@@ -204,7 +204,7 @@ class Simulator:
 
         print("Simulation finished.")
 
-    def save_results(self, output_filepath="results_experiment1_min_rtt_150_agents.csv"):
+    def save_results(self, output_filepath="results_experiment3_min_rtt_100_agents.csv"):
         """Writes the logged data to a CSV file."""
         if not self.log_data:
             print("No data to save.")
@@ -224,27 +224,21 @@ class Simulator:
 # MAIN EXECUTION BLOCK
 # ==============================================================================
 
-def create_topology_file(filepath="topology.json"):
+def create_topology_file(filepath="topology-alt.json"):
     """A helper function to create the JSON config file."""
     topo_data = {
       "paths": [
         {
           "id": "path_1",
-          "capacity_mbps": 100,
+          "capacity_mbps": 200,
           "base_rtt_ms": 50,
           "attributes": []
         },
         {
           "id": "path_2",
-          "capacity_mbps": 200,
+          "capacity_mbps": 100,
           "base_rtt_ms": 100,
           "attributes": []
-        },
-        {
-          "id": "path_3",
-          "capacity_mbps": 80,
-          "base_rtt_ms": 50,
-          "attributes": ["high-cost"]
         }
       ]
     }
@@ -265,29 +259,32 @@ def create_meta_file(result_filename, strategy, num_agents, config_file, duratio
     with open(result_filename.replace(".csv", ".meta.json"), "w") as f:
         json.dump(meta, f, indent=2)
 
+
+
+
+
+
 if __name__ == "__main__":
     # --- Simulation Parameters ---
-    CONFIG_FILE = "topology.json"
-    SIMULATION_DURATION = 300
-    AGENT_COUNTS = [10, 25, 50, 100, 150, 250, 500]
-    STRATEGIES = ["min_rtt", "min_load", "attribute_aware"]
- 
+
 
         # Logging config
     logging.basicConfig(
-        filename="experiment1_log.txt",
+        filename="experiment3_log.txt",
         level=logging.INFO,
         format="%(asctime)s - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"
     )
 
+    CONFIG_FILE = "topology-alt.json"
+    SIMULATION_DURATION = 300
+    AGENT_COUNTS = [10, 25, 50, 100, 150, 250, 500]
+    STRATEGIES = ["min_rtt", "min_load"]
  
 
     create_topology_file(CONFIG_FILE)
-
     logging.info("=== Starting all simulations ===")
 
-  
     for strategy in STRATEGIES:
         for num_agents in AGENT_COUNTS:
             logging.info(f"\n=== Simulation: Strategy={strategy}, Agents={num_agents} ===")
@@ -301,16 +298,19 @@ if __name__ == "__main__":
             )
             sim.run()
 
-            result_filename = f"results_experiment1_{strategy}_{num_agents}_agents.csv"
+            result_filename = f"results_experiment3_{strategy}_{num_agents}_agents.csv"
             sim.save_results(output_filepath=result_filename)
 
+
+
+                    
             create_meta_file(
                 result_filename=result_filename,
                 strategy=strategy,
                 num_agents=num_agents,
                 config_file=CONFIG_FILE,
                 duration=SIMULATION_DURATION,
-                experiment="experiment_1"
+                experiment="experiment_3"
             )
 
 
@@ -321,32 +321,26 @@ if __name__ == "__main__":
             loss = df['total_loss'].mean()
             logging.info(f"Avg Throughput: {throughput:.2f} Mbps, Avg Loss: {loss:.2f} Mbps")
 
-            for path in ['path_1_load', 'path_2_load', 'path_3_load']:
+            for path in ['path_1_load', 'path_2_load']:
                 std = df[path].std()
                 peak = df[path].max() - df[path].min()
                 logging.info(f"{path}: std={std:.2f}, peak-to-peak={peak:.2f}")
 
-    # Oscillation and Loss summary
-    logging.info("\n=== Oscillation and Loss Comparison Summary ===")
+    # Oscillation summary
+    logging.info("\n=== Oscillation Comparison Summary ===")
     for strategy in STRATEGIES:
         for num_agents in AGENT_COUNTS:
             try:
-                df = pd.read_csv(f"results_experiment1_{strategy}_{num_agents}_agents.csv")
+                df = pd.read_csv(f"results_experiment3_{strategy}_{num_agents}_agents.csv")
                 path_cols = [col for col in df.columns if col.endswith('_load')]
-
-                # Oszillation berechnen
                 osc = df[path_cols].std().mean()
-                loss = df['total_loss'].mean()
-
-                msg = (
-                    f"{strategy.upper()} with {num_agents} agents "
-                    f"=> Avg Oscillation: {osc:.2f}, Avg Loss: {loss:.2f} Mbps"
-                )
+                msg = f"{strategy.upper()} with {num_agents} agents => Avg Oscillation: {osc:.2f}"
                 logging.info(msg)
                 print(msg)
-
             except FileNotFoundError:
                 logging.warning(f"Missing file for {strategy}, {num_agents} agents")
 
     os.remove(CONFIG_FILE)
+
     logging.info("All simulations completed. Topology file removed.\n")
+

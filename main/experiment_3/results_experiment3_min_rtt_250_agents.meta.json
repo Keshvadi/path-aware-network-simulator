@@ -1,0 +1,7 @@
+{
+  "strategy": "min_rtt",
+  "agents": 250,
+  "topology": "topology-alt.json",
+  "duration": 300,
+  "experiment": "experiment_3"
+}

@@ -2,6 +2,7 @@ import json
 import csv
 import random
 import os
+import logging
 import pandas as pd
 
 
@@ -204,7 +205,7 @@ class Simulator:
 
         print("Simulation finished.")
 
-    def save_results(self, output_filepath="results_experiment1_min_rtt_150_agents.csv"):
+    def save_results(self, output_filepath="results_experiment2_min_rtt_10_agents.csv"):
         """Writes the logged data to a CSV file."""
         if not self.log_data:
             print("No data to save.")
@@ -251,69 +252,95 @@ def create_topology_file(filepath="topology.json"):
     with open(filepath, 'w') as f:
         json.dump(topo_data, f, indent=2)
 
+    
+
+def create_meta_file(result_filename, strategy, num_agents, config_file, duration, experiment):
+    """Creates a .meta.json file containing metadata for the simulation."""
+    meta = {
+        "strategy": strategy,
+        "agents": num_agents,
+        "topology": config_file,
+        "duration": duration,
+        "experiment": experiment
+    }
+
+    with open(result_filename.replace(".csv", ".meta.json"), "w") as f:
+        json.dump(meta, f, indent=2)
+
+
+
+        
 if __name__ == "__main__":
-    # --- Simulation Parameters ---
-    CONFIG_FILE = "topology.json"
-    NUM_AGENTS = 150
-    SIMULATION_DURATION = 300
-    # Change this to "min_load" "min_rtt" or "attribute_aware" to test other strategies
-    STRATEGY =  "min_rtt" #"min_load" #"attribute_aware" #"min_rtt" #"min_load" 
-    
-    
-     # 1. Create the config file for the simulation
-    create_topology_file(CONFIG_FILE)
 
-    # 2. Initialize and run the simulator
-    sim = Simulator(
-        config_filepath=CONFIG_FILE,
-        num_agents=NUM_AGENTS,
-        duration=SIMULATION_DURATION,
-        strategy_name=STRATEGY
+    # Logging config
+    logging.basicConfig(
+        filename="experiment2_log.txt",
+        level=logging.INFO,
+        format="%(asctime)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"
     )
-    sim.run()
 
-    # 3. Save the results to a CSV file
-    sim.save_results()
+    CONFIG_FILE = "topology.json"
+    SIMULATION_DURATION = 300
+    AGENT_COUNTS = [10, 25, 50, 100, 500]
+    STRATEGIES = ["min_rtt", "min_load"]
 
-    # 4. Print a small part of the results to the console for immediate feedback
-    print("\n--- Sample of Results (first 5 rows of results.csv) ---")
-    with open("results_experiment1_min_rtt_150_agents.csv", 'r') as f:
-        for i, line in enumerate(f):
-            if i > 5:
-                break
-            # Print a truncated line to keep the output clean
-            print(line.strip()[:150])
+    create_topology_file(CONFIG_FILE)
+    logging.info("=== Starting all simulations ===")
 
-    df = pd.read_csv("results_experiment1_min_rtt_150_agents.csv")  
-    print("\n--- Simulation Info ---")
-    print(f"Simulation Duration: {df['timestep'].max()} timesteps")
-    print(f"Columns: {len(df.columns)} total")
+    for strategy in STRATEGIES:
+        for num_agents in AGENT_COUNTS:
+            logging.info(f"\n=== Simulation: Strategy={strategy}, Agents={num_agents} ===")
+            print(f"\nRunning: {strategy} with {num_agents} agents")
 
-    
-    print("\n--- Network Summary ---")
-    print(f"Avg Throughput: {df['total_throughput'].mean():.2f} Mbps")
-    print(f"Avg Total Loss: {df['total_loss'].mean():.2f} Mbps")
-    print(f"Max Throughput: {df['total_throughput'].max():.2f} Mbps")
-    print(f"Max Loss: {df['total_loss'].max():.2f} Mbps")
+            sim = Simulator(
+                config_filepath=CONFIG_FILE,
+                num_agents=num_agents,
+                duration=SIMULATION_DURATION,
+                strategy_name=strategy
+            )
+            sim.run()
 
-    
-    print("\n--- Path Load Volatility ---")
-    for path in ['path_1_load', 'path_2_load', 'path_3_load']:
-        std = df[path].std()
-        peak = df[path].max() - df[path].min()
-        print(f"{path}: std={std:.2f}, peak-to-peak={peak:.2f}")
+            result_filename = f"results_experiment2_{strategy}_{num_agents}_agents.csv"
+            sim.save_results(output_filepath=result_filename)
 
-    
-    print("\n--- Path Usage Summary ---")
-    for path in ['path_1_load', 'path_2_load', 'path_3_load']:
-        used_timesteps = (df[path] > 0.1).sum()
-        print(f"{path} used in {used_timesteps} of {len(df)} timesteps")
+            
+            create_meta_file(
+                result_filename=result_filename,
+                strategy=strategy,
+                num_agents=num_agents,
+                config_file=CONFIG_FILE,
+                duration=SIMULATION_DURATION,
+                experiment="experiment_2"
+            )
 
-    
-  
-    # Clean up the created topology file
+
+
+
+            df = pd.read_csv(result_filename)
+
+            throughput = df['total_throughput'].mean()
+            loss = df['total_loss'].mean()
+            logging.info(f"Avg Throughput: {throughput:.2f} Mbps, Avg Loss: {loss:.2f} Mbps")
+
+            for path in ['path_1_load', 'path_2_load', 'path_3_load']:
+                std = df[path].std()
+                peak = df[path].max() - df[path].min()
+                logging.info(f"{path}: std={std:.2f}, peak-to-peak={peak:.2f}")
+
+    # Oscillation summary
+    logging.info("\n=== Oscillation Comparison Summary ===")
+    for strategy in STRATEGIES:
+        for num_agents in AGENT_COUNTS:
+            try:
+                df = pd.read_csv(f"results_experiment2_{strategy}_{num_agents}_agents.csv")
+                path_cols = [col for col in df.columns if col.endswith('_load')]
+                osc = df[path_cols].std().mean()
+                msg = f"{strategy.upper()} with {num_agents} agents => Avg Oscillation: {osc:.2f}"
+                logging.info(msg)
+                print(msg)
+            except FileNotFoundError:
+                logging.warning(f"Missing file for {strategy}, {num_agents} agents")
+
     os.remove(CONFIG_FILE)
-
-
-
-
+    logging.info("All simulations completed. Topology file removed.\n")
