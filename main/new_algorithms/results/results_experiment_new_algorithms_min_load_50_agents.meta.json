@@ -1,0 +1,7 @@
+{
+  "strategy": "min_load",
+  "agents": 50,
+  "topology": "topology.json",
+  "duration": 300,
+  "experiment": "experiment_new_algorithms"
+}

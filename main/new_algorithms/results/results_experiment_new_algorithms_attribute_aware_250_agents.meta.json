@@ -1,0 +1,7 @@
+{
+  "strategy": "attribute_aware",
+  "agents": 250,
+  "topology": "topology.json",
+  "duration": 300,
+  "experiment": "experiment_new_algorithms"
+}
