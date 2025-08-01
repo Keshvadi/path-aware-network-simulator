@@ -294,7 +294,7 @@ class Simulator:
 
         print("Simulation finished.")
 
-    def save_results(self, output_filepath="results_experiment1_min_rtt_150_agents.csv"):
+    def save_results(self, output_filepath="results_experiment_new_algorithms.csv"):
         """Writes the logged data to a CSV file."""
         if not self.log_data:
             print("No data to save.")
@@ -345,11 +345,6 @@ def create_topology_file(filepath="topology.json"):
         json.dump(topo_data, f, indent=2)
 
 
-RESULT_DIR = "results"
-os.makedirs(RESULT_DIR, exist_ok=True)
-
-
-
 def create_meta_file(result_filename, strategy, num_agents, config_file, duration, experiment):
     """Creates a .meta.json file containing metadata for the simulation."""
     meta = {
@@ -388,6 +383,14 @@ def compute_efficiency(df):
 
 
 if __name__ == "__main__":
+
+    
+    RESULT_DIR = "results"
+    os.makedirs(RESULT_DIR, exist_ok=True)
+
+
+
+
     # --- Simulation Parameters ---
     CONFIG_FILE = "topology.json"
     SIMULATION_DURATION = 300
@@ -447,7 +450,10 @@ if __name__ == "__main__":
     for strategy in STRATEGIES:
         for num_agents in AGENT_COUNTS:
             try:
-                df = pd.read_csv(f"results_experiment_new_algorithms_{strategy}_{num_agents}_agents.csv")
+
+                df = pd.read_csv(os.path.join(RESULT_DIR, f"results_experiment_new_algorithms_{strategy}_{num_agents}_agents.csv"))
+
+                #df = pd.read_csv(f"results_experiment_new_algorithms_{strategy}_{num_agents}_agents.csv")
                 path_cols = [col for col in df.columns if col.endswith('_load')]
 
                 # Oszillation berechnen
@@ -519,4 +525,3 @@ if __name__ == "__main__":
     summary_df = pd.DataFrame(summary_rows)
     summary_df.to_csv(os.path.join(RESULT_DIR, "experiment_new_algorithms_summary.csv"), index=False)
     logging.info("Saved experiment summary to summary CSV.")
-
