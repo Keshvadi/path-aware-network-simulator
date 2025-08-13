@@ -1,0 +1,7 @@
+{
+  "strategy": "epsilon_greedy",
+  "agents": 50,
+  "topology": "topology.json",
+  "duration": 300,
+  "experiment": "experiment_new_algorithms"
+}

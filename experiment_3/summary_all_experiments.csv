@@ -1,0 +1,15 @@
+file,experiment,strategy,agents,topology,oscillation,loss,throughput,fairness_std
+results_experiment3_min_load_10_agents.csv,experiment_3,min_load,10,topology-alt.json,10.02,0.0,20.02,0.04
+results_experiment3_min_load_25_agents.csv,experiment_3,min_load,25,topology-alt.json,25.07,0.0,50.08,0.15
+results_experiment3_min_load_50_agents.csv,experiment_3,min_load,50,topology-alt.json,50.14,0.0,100.16,0.33
+results_experiment3_min_load_100_agents.csv,experiment_3,min_load,100,topology-alt.json,100.26,50.12,200.31,0.69
+results_experiment3_min_load_150_agents.csv,experiment_3,min_load,150,topology-alt.json,150.03,150.1,299.9,0.58
+results_experiment3_min_load_250_agents.csv,experiment_3,min_load,250,topology-alt.json,250.0,349.91,499.79,0.96
+results_experiment3_min_load_500_agents.csv,experiment_3,min_load,500,topology-alt.json,500.09,851.13,999.67,2.02
+results_experiment3_min_rtt_10_agents.csv,experiment_3,min_rtt,10,topology-alt.json,18.45,0.03,147.45,103.88
+results_experiment3_min_rtt_25_agents.csv,experiment_3,min_rtt,25,topology-alt.json,19.16,0.19,150.28,105.93
+results_experiment3_min_rtt_50_agents.csv,experiment_3,min_rtt,50,topology-alt.json,23.35,0.57,151.38,106.63
+results_experiment3_min_rtt_100_agents.csv,experiment_3,min_rtt,100,topology-alt.json,30.37,2.22,153.47,108.35
+results_experiment3_min_rtt_150_agents.csv,experiment_3,min_rtt,150,topology-alt.json,43.98,50.43,224.91,158.7
+results_experiment3_min_rtt_250_agents.csv,experiment_3,min_rtt,250,topology-alt.json,16.92,51.91,250.64,176.64
+results_experiment3_min_rtt_500_agents.csv,experiment_3,min_rtt,500,topology-alt.json,37.35,304.56,501.38,353.11

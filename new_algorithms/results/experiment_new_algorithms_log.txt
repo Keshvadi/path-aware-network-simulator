@@ -1,0 +1,55 @@
+2025-08-01 10:28:50 - === Starting all simulations ===
+2025-08-01 10:28:59 - 
+=== Oscillation and Loss Comparison Summary ===
+2025-08-01 10:28:59 - MIN_RTT with 10 agents Osc: 6.60, Loss: 0.05 Mbps, Fairness: 0.95, Efficiency: 74.70, Stability: 0.13, LossAvoid: 0.95
+2025-08-01 10:28:59 - MIN_RTT with 25 agents Osc: 8.04, Loss: 0.23 Mbps, Fairness: 0.93, Efficiency: 75.54, Stability: 0.11, LossAvoid: 0.81
+2025-08-01 10:28:59 - MIN_RTT with 50 agents Osc: 10.76, Loss: 0.88 Mbps, Fairness: 0.89, Efficiency: 76.48, Stability: 0.09, LossAvoid: 0.53
+2025-08-01 10:28:59 - MIN_RTT with 100 agents Osc: 20.15, Loss: 49.70 Mbps, Fairness: 0.90, Efficiency: 149.94, Stability: 0.05, LossAvoid: 0.02
+2025-08-01 10:28:59 - MIN_RTT with 150 agents Osc: 8.22, Loss: 50.64 Mbps, Fairness: 0.99, Efficiency: 150.44, Stability: 0.11, LossAvoid: 0.02
+2025-08-01 10:28:59 - MIN_RTT with 250 agents Osc: 13.30, Loss: 151.42 Mbps, Fairness: 0.99, Efficiency: 250.73, Stability: 0.07, LossAvoid: 0.01
+2025-08-01 10:28:59 - MIN_RTT with 500 agents Osc: 26.19, Loss: 403.76 Mbps, Fairness: 0.99, Efficiency: 501.44, Stability: 0.04, LossAvoid: 0.00
+2025-08-01 10:28:59 - MIN_LOAD with 10 agents Osc: 7.13, Loss: 0.00 Mbps, Fairness: 1.00, Efficiency: 20.01, Stability: 0.12, LossAvoid: 1.00
+2025-08-01 10:28:59 - MIN_LOAD with 25 agents Osc: 17.85, Loss: 0.00 Mbps, Fairness: 1.00, Efficiency: 50.03, Stability: 0.05, LossAvoid: 1.00
+2025-08-01 10:28:59 - MIN_LOAD with 50 agents Osc: 35.68, Loss: 0.13 Mbps, Fairness: 1.00, Efficiency: 100.06, Stability: 0.03, LossAvoid: 0.89
+2025-08-01 10:28:59 - MIN_LOAD with 100 agents Osc: 68.87, Loss: 50.30 Mbps, Fairness: 1.00, Efficiency: 200.20, Stability: 0.01, LossAvoid: 0.02
+2025-08-01 10:29:00 - MIN_LOAD with 150 agents Osc: 106.09, Loss: 150.09 Mbps, Fairness: 1.00, Efficiency: 299.94, Stability: 0.01, LossAvoid: 0.01
+2025-08-01 10:29:00 - MIN_LOAD with 250 agents Osc: 171.15, Loss: 350.17 Mbps, Fairness: 1.00, Efficiency: 499.89, Stability: 0.01, LossAvoid: 0.00
+2025-08-01 10:29:00 - MIN_LOAD with 500 agents Osc: 353.13, Loss: 850.92 Mbps, Fairness: 1.00, Efficiency: 999.75, Stability: 0.00, LossAvoid: 0.00
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 10 agents Osc: 6.50, Loss: 0.02 Mbps, Fairness: 0.95, Efficiency: 74.56, Stability: 0.13, LossAvoid: 0.98
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 25 agents Osc: 7.85, Loss: 0.30 Mbps, Fairness: 0.93, Efficiency: 75.74, Stability: 0.11, LossAvoid: 0.77
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 50 agents Osc: 10.52, Loss: 0.86 Mbps, Fairness: 0.90, Efficiency: 76.46, Stability: 0.09, LossAvoid: 0.54
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 100 agents Osc: 20.42, Loss: 49.70 Mbps, Fairness: 0.90, Efficiency: 149.95, Stability: 0.05, LossAvoid: 0.02
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 150 agents Osc: 8.29, Loss: 50.63 Mbps, Fairness: 0.99, Efficiency: 150.44, Stability: 0.11, LossAvoid: 0.02
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 250 agents Osc: 13.55, Loss: 151.48 Mbps, Fairness: 0.98, Efficiency: 250.72, Stability: 0.07, LossAvoid: 0.01
+2025-08-01 10:29:00 - ATTRIBUTE_AWARE with 500 agents Osc: 27.38, Loss: 403.92 Mbps, Fairness: 0.98, Efficiency: 501.41, Stability: 0.04, LossAvoid: 0.00
+2025-08-01 10:29:00 - ROUND_ROBIN with 10 agents Osc: 9.45, Loss: 0.00 Mbps, Fairness: 1.00, Efficiency: 20.03, Stability: 0.10, LossAvoid: 1.00
+2025-08-01 10:29:00 - ROUND_ROBIN with 25 agents Osc: 23.60, Loss: 0.00 Mbps, Fairness: 1.00, Efficiency: 50.04, Stability: 0.04, LossAvoid: 1.00
+2025-08-01 10:29:00 - ROUND_ROBIN with 50 agents Osc: 47.25, Loss: 6.75 Mbps, Fairness: 1.00, Efficiency: 100.15, Stability: 0.02, LossAvoid: 0.13
+2025-08-01 10:29:00 - ROUND_ROBIN with 100 agents Osc: 94.29, Loss: 73.01 Mbps, Fairness: 1.00, Efficiency: 199.96, Stability: 0.01, LossAvoid: 0.01
+2025-08-01 10:29:00 - ROUND_ROBIN with 150 agents Osc: 141.41, Loss: 173.01 Mbps, Fairness: 1.00, Efficiency: 299.90, Stability: 0.01, LossAvoid: 0.01
+2025-08-01 10:29:00 - ROUND_ROBIN with 250 agents Osc: 235.70, Loss: 373.06 Mbps, Fairness: 1.00, Efficiency: 499.87, Stability: 0.00, LossAvoid: 0.00
+2025-08-01 10:29:00 - ROUND_ROBIN with 500 agents Osc: 471.43, Loss: 873.94 Mbps, Fairness: 1.00, Efficiency: 999.79, Stability: 0.00, LossAvoid: 0.00
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 10 agents Osc: 37.72, Loss: 0.12 Mbps, Fairness: 0.87, Efficiency: 122.40, Stability: 0.03, LossAvoid: 0.90
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 25 agents Osc: 48.57, Loss: 0.91 Mbps, Fairness: 0.89, Efficiency: 162.37, Stability: 0.02, LossAvoid: 0.52
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 50 agents Osc: 41.48, Loss: 4.63 Mbps, Fairness: 0.93, Efficiency: 246.55, Stability: 0.02, LossAvoid: 0.18
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 100 agents Osc: 36.08, Loss: 13.69 Mbps, Fairness: 0.96, Efficiency: 299.21, Stability: 0.03, LossAvoid: 0.07
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 150 agents Osc: 36.96, Loss: 23.97 Mbps, Fairness: 0.96, Efficiency: 327.04, Stability: 0.03, LossAvoid: 0.04
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 250 agents Osc: 46.50, Loss: 60.82 Mbps, Fairness: 0.95, Efficiency: 388.16, Stability: 0.02, LossAvoid: 0.02
+2025-08-01 10:29:00 - WEIGHTED_ROUND_ROBIN with 500 agents Osc: 81.50, Loss: 216.22 Mbps, Fairness: 0.98, Efficiency: 561.94, Stability: 0.01, LossAvoid: 0.00
+2025-08-01 10:29:00 - EPSILON_GREEDY with 10 agents Osc: 6.73, Loss: 0.32 Mbps, Fairness: 0.95, Efficiency: 77.02, Stability: 0.13, LossAvoid: 0.76
+2025-08-01 10:29:00 - EPSILON_GREEDY with 25 agents Osc: 9.07, Loss: 2.45 Mbps, Fairness: 0.94, Efficiency: 85.59, Stability: 0.10, LossAvoid: 0.29
+2025-08-01 10:29:00 - EPSILON_GREEDY with 50 agents Osc: 12.26, Loss: 7.36 Mbps, Fairness: 0.92, Efficiency: 95.87, Stability: 0.08, LossAvoid: 0.12
+2025-08-01 10:29:00 - EPSILON_GREEDY with 100 agents Osc: 18.39, Loss: 32.28 Mbps, Fairness: 0.92, Efficiency: 144.92, Stability: 0.05, LossAvoid: 0.03
+2025-08-01 10:29:00 - EPSILON_GREEDY with 150 agents Osc: 8.57, Loss: 49.95 Mbps, Fairness: 0.99, Efficiency: 169.64, Stability: 0.10, LossAvoid: 0.02
+2025-08-01 10:29:00 - EPSILON_GREEDY with 250 agents Osc: 14.23, Loss: 150.29 Mbps, Fairness: 0.99, Efficiency: 283.39, Stability: 0.07, LossAvoid: 0.01
+2025-08-01 10:29:01 - EPSILON_GREEDY with 500 agents Osc: 25.02, Loss: 401.31 Mbps, Fairness: 0.99, Efficiency: 566.69, Stability: 0.04, LossAvoid: 0.00
+2025-08-01 10:29:01 - BLEST with 10 agents Osc: 6.82, Loss: 0.00 Mbps, Fairness: 1.00, Efficiency: 20.01, Stability: 0.13, LossAvoid: 1.00
+2025-08-01 10:29:01 - BLEST with 25 agents Osc: 17.31, Loss: 0.00 Mbps, Fairness: 1.00, Efficiency: 50.05, Stability: 0.05, LossAvoid: 1.00
+2025-08-01 10:29:01 - BLEST with 50 agents Osc: 34.42, Loss: 10.03 Mbps, Fairness: 1.00, Efficiency: 100.10, Stability: 0.03, LossAvoid: 0.09
+2025-08-01 10:29:01 - BLEST with 100 agents Osc: 68.16, Loss: 109.68 Mbps, Fairness: 1.00, Efficiency: 199.93, Stability: 0.01, LossAvoid: 0.01
+2025-08-01 10:29:01 - BLEST with 150 agents Osc: 102.65, Loss: 209.63 Mbps, Fairness: 1.00, Efficiency: 299.93, Stability: 0.01, LossAvoid: 0.00
+2025-08-01 10:29:01 - BLEST with 250 agents Osc: 171.55, Loss: 409.62 Mbps, Fairness: 1.00, Efficiency: 499.86, Stability: 0.01, LossAvoid: 0.00
+2025-08-01 10:29:01 - BLEST with 500 agents Osc: 343.52, Loss: 910.43 Mbps, Fairness: 1.00, Efficiency: 999.77, Stability: 0.00, LossAvoid: 0.00
+2025-08-01 10:29:01 - All simulations completed. Topology file removed.
+
+2025-08-01 10:29:02 - Saved experiment summary to summary CSV.

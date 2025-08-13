@@ -1,0 +1,75 @@
+2025-07-23 09:47:47 - === Starting all simulations ===
+2025-07-23 09:47:47 - 
+=== Simulation: Strategy=min_rtt, Agents=10 ===
+2025-07-23 09:47:47 - Avg Throughput: 74.79 Mbps, Avg Loss: 0.05 Mbps
+2025-07-23 09:47:47 - path_1_load: std=17.87, peak-to-peak=97.00
+2025-07-23 09:47:47 - path_2_load: std=1.03, peak-to-peak=17.80
+2025-07-23 09:47:47 - path_3_load: std=0.30, peak-to-peak=5.14
+2025-07-23 09:47:47 - 
+=== Simulation: Strategy=min_rtt, Agents=25 ===
+2025-07-23 09:47:47 - Avg Throughput: 75.57 Mbps, Avg Loss: 0.25 Mbps
+2025-07-23 09:47:47 - path_1_load: std=20.93, peak-to-peak=104.13
+2025-07-23 09:47:47 - path_2_load: std=1.72, peak-to-peak=29.81
+2025-07-23 09:47:47 - path_3_load: std=0.75, peak-to-peak=13.06
+2025-07-23 09:47:47 - 
+=== Simulation: Strategy=min_rtt, Agents=50 ===
+2025-07-23 09:47:47 - Avg Throughput: 76.49 Mbps, Avg Loss: 0.88 Mbps
+2025-07-23 09:47:47 - path_1_load: std=26.10, peak-to-peak=102.85
+2025-07-23 09:47:47 - path_2_load: std=1.90, peak-to-peak=32.84
+2025-07-23 09:47:47 - path_3_load: std=3.30, peak-to-peak=57.20
+2025-07-23 09:47:47 - 
+=== Simulation: Strategy=min_rtt, Agents=100 ===
+2025-07-23 09:47:47 - Avg Throughput: 149.89 Mbps, Avg Loss: 49.93 Mbps
+2025-07-23 09:47:47 - path_1_load: std=50.34, peak-to-peak=169.00
+2025-07-23 09:47:47 - path_2_load: std=6.41, peak-to-peak=111.06
+2025-07-23 09:47:47 - path_3_load: std=5.32, peak-to-peak=92.06
+2025-07-23 09:47:47 - 
+=== Simulation: Strategy=min_rtt, Agents=500 ===
+2025-07-23 09:47:48 - Avg Throughput: 501.48 Mbps, Avg Loss: 403.88 Mbps
+2025-07-23 09:47:48 - path_1_load: std=25.44, peak-to-peak=435.86
+2025-07-23 09:47:48 - path_2_load: std=25.54, peak-to-peak=442.38
+2025-07-23 09:47:48 - path_3_load: std=28.44, peak-to-peak=492.55
+2025-07-23 09:47:48 - 
+=== Simulation: Strategy=min_load, Agents=10 ===
+2025-07-23 09:47:48 - Avg Throughput: 20.01 Mbps, Avg Loss: 0.00 Mbps
+2025-07-23 09:47:48 - path_1_load: std=10.01, peak-to-peak=22.37
+2025-07-23 09:47:48 - path_2_load: std=10.01, peak-to-peak=20.00
+2025-07-23 09:47:48 - path_3_load: std=0.42, peak-to-peak=7.34
+2025-07-23 09:47:48 - 
+=== Simulation: Strategy=min_load, Agents=25 ===
+2025-07-23 09:47:48 - Avg Throughput: 50.04 Mbps, Avg Loss: 0.00 Mbps
+2025-07-23 09:47:48 - path_1_load: std=25.01, peak-to-peak=50.00
+2025-07-23 09:47:48 - path_2_load: std=25.00, peak-to-peak=50.00
+2025-07-23 09:47:48 - path_3_load: std=3.75, peak-to-peak=62.41
+2025-07-23 09:47:48 - 
+=== Simulation: Strategy=min_load, Agents=50 ===
+2025-07-23 09:47:48 - Avg Throughput: 100.11 Mbps, Avg Loss: 0.17 Mbps
+2025-07-23 09:47:48 - path_1_load: std=50.01, peak-to-peak=100.00
+2025-07-23 09:47:48 - path_2_load: std=50.00, peak-to-peak=100.00
+2025-07-23 09:47:48 - path_3_load: std=8.09, peak-to-peak=132.13
+2025-07-23 09:47:48 - 
+=== Simulation: Strategy=min_load, Agents=100 ===
+2025-07-23 09:47:49 - Avg Throughput: 200.23 Mbps, Avg Loss: 50.01 Mbps
+2025-07-23 09:47:49 - path_1_load: std=100.00, peak-to-peak=200.00
+2025-07-23 09:47:49 - path_2_load: std=100.31, peak-to-peak=269.35
+2025-07-23 09:47:49 - path_3_load: std=6.34, peak-to-peak=109.86
+2025-07-23 09:47:49 - 
+=== Simulation: Strategy=min_load, Agents=500 ===
+2025-07-23 09:47:49 - Avg Throughput: 999.71 Mbps, Avg Loss: 850.72 Mbps
+2025-07-23 09:47:49 - path_1_load: std=499.74, peak-to-peak=1000.00
+2025-07-23 09:47:49 - path_2_load: std=500.00, peak-to-peak=1000.00
+2025-07-23 09:47:49 - path_3_load: std=29.24, peak-to-peak=506.50
+2025-07-23 09:47:49 - 
+=== Oscillation Comparison Summary ===
+2025-07-23 09:47:49 - MIN_RTT with 10 agents => Avg Oscillation: 6.40
+2025-07-23 09:47:50 - MIN_RTT with 25 agents => Avg Oscillation: 7.80
+2025-07-23 09:47:50 - MIN_RTT with 50 agents => Avg Oscillation: 10.43
+2025-07-23 09:47:50 - MIN_RTT with 100 agents => Avg Oscillation: 20.69
+2025-07-23 09:47:50 - MIN_RTT with 500 agents => Avg Oscillation: 26.47
+2025-07-23 09:47:50 - MIN_LOAD with 10 agents => Avg Oscillation: 6.82
+2025-07-23 09:47:50 - MIN_LOAD with 25 agents => Avg Oscillation: 17.92
+2025-07-23 09:47:50 - MIN_LOAD with 50 agents => Avg Oscillation: 36.03
+2025-07-23 09:47:50 - MIN_LOAD with 100 agents => Avg Oscillation: 68.88
+2025-07-23 09:47:50 - MIN_LOAD with 500 agents => Avg Oscillation: 342.99
+2025-07-23 09:47:50 - All simulations completed. Topology file removed.
+

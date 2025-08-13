@@ -1,0 +1,7 @@
+{
+  "strategy": "weighted_round_robin",
+  "agents": 25,
+  "topology": "topology.json",
+  "duration": 300,
+  "experiment": "experiment_new_algorithms"
+}
